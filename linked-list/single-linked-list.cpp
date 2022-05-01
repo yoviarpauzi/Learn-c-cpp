@@ -42,6 +42,7 @@ void addMiddle(string nama, int umur){
     newnode->umur = umur;
     newnode->next = cur->next;
     cur->next = newnode;
+    a++;
 }
 void printLinkedList(){
     while(head != NULL){
