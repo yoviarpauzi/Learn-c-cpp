@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 int a = 0;
 struct Teman{
@@ -6,6 +6,7 @@ struct Teman{
     int umur;
     Teman *next;
 }*head, *tail, *newnode, *cur;
+// Membuat node baru
 void newNode(string nama, int umur){
     head = new Teman();
     head->nama = nama;
@@ -13,6 +14,7 @@ void newNode(string nama, int umur){
     tail = head;
     a++;
 }
+// Menambahkan node di awal
 void addFirst(string nama, int umur){
     newnode = new Teman();
     newnode->nama = nama;
@@ -21,6 +23,7 @@ void addFirst(string nama, int umur){
     head = newnode;
     a++;
 }
+// Menambahkan node di akhir
 void addLast(string nama, int umur){
     newnode = new Teman();
     newnode->nama = nama;
@@ -29,6 +32,7 @@ void addLast(string nama, int umur){
     tail = newnode;
     a++;
 }
+// Menambahkan node di tengah
 void addMiddle(string nama, int umur){
     cur = head;
     int b = (a / 2) + 1;
@@ -44,6 +48,7 @@ void addMiddle(string nama, int umur){
     cur->next = newnode;
     a++;
 }
+//Prosedur untuk menampilkan node
 void printLinkedList(){
     while(head != NULL){
         cout << "Nama : " << head->nama << endl;
@@ -51,6 +56,7 @@ void printLinkedList(){
         head = head->next;
     }
 }
+//Program utama
 int main(){
     newNode("Afrizal", 20);
     addFirst("Misbahul Anam", 21);
