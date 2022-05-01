@@ -103,7 +103,10 @@ int main(){
     char nama[30];
     char tanggal[30];
     int ttl, bulan, tahun, a = 0;
-    while(a < 5){
+    while(1){
+        if(feof(fp)){
+            break;
+        }
         fscanf(fp, "%[^#]#%[^\n]\n", nama, tanggal);
         sscanf(tanggal, "%i-%i-%i", &ttl, &bulan, &tahun);
         newNode(nama, ttl, bulan, tahun);
