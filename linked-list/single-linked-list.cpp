@@ -81,7 +81,7 @@ void delLast(){
 }
 void printLinkedList(){
     cur = head;
-    while(cur != NULL){
+    while(cur != tail->next){
         cout << "Nama : " << cur->nama << endl;
         cout << "Umur : " << cur->umur << endl;
         cur = cur->next;
