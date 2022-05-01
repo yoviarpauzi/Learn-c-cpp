@@ -36,6 +36,7 @@ void addMiddle(string nama, int umur){
     delnode = cur->next;
     cur->next = newnode;
     newnode->next = delnode;
+    a++;
 }
 void addLast(string nama, int umur){
     newnode = new Teman();
@@ -50,6 +51,7 @@ void delFirst(){
     delnode = head;
     head = head->next;
     delete delnode;
+    a--;
 }
 void delMiddle(){
     cur = head;
@@ -67,6 +69,7 @@ void delMiddle(){
     delnode = cur->next;
     cur->next = cur->next->next;
     delete delnode;
+    a--;
 }
 void delLast(){
     delnode = tail;
@@ -103,7 +106,6 @@ int main(){
     addFirst("Maulidani Rianturi", 18);
     addLast("Satria", 23);
     addMiddle("Dihak", 21);
-    changeFirst("Rival", 21);
     delMiddle();
     printLinkedList();
     return 0;
