@@ -47,7 +47,7 @@ void sortLinkedList(){
                 cur->tahun = index->tahun;
                 index->tahun = tahun;
             }else if(cur->bulan == index->bulan){
-                if(cur->tanggal > index->tanggal){
+                if(cur->tanggal == index->tanggal){
                     strcpy(nama, cur->nama);
                     strcpy(cur->nama, index->nama);
                     strcpy(index->nama, nama);
@@ -64,7 +64,7 @@ void sortLinkedList(){
                     cur->tahun = index->tahun;
                     index->tahun = tahun;
                 }else if(cur->tanggal == index->tanggal){
-                    if(cur->nama == index->nama){
+                    if(cur->nama > index->nama){
                         strcpy(nama, cur->nama);
                         strcpy(cur->nama, index->nama);
                         strcpy(index->nama, nama);
