@@ -29,10 +29,10 @@ void Modus(int a[], int n)
             c++;
         }
         if (c == n)
-            printf("\nThere is no mode");
+            printf("There is no mode");
         else
         {
-            printf("\nMode\t= ");
+            printf("Mode : ");
             for (i = 0; i < k; i++)
                 printf("%d ",b[i]);
         }
@@ -61,7 +61,7 @@ void Median(int a[], int n)
 	if (n % 2 != 0){
         cout << "Median : " << (double)a[n / 2] << endl;
 	}else{
-    cout << "Median : " << (double)(a[(n - 1) / 2] + a[n / 2]) / 2.0 << endl;
+    	cout << "Median : " << (double)(a[(n - 1) / 2] + a[n / 2]) / 2.0 << endl;
 	}
 }
 int main(){
