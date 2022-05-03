@@ -2,7 +2,7 @@
 using namespace std;
 void Modus(int a[], int n)
 {
-	int b[n], i, j, sum = 0, t, k = 0, c = 1, max = 0, mode;
+	int b[n], i, j, k = 0, c = 1, max = 0, mode;
 	 for (i = 0; i < n - 1; i++)
     {
         mode = 0;
@@ -29,12 +29,16 @@ void Modus(int a[], int n)
             c++;
         }
         if (c == n)
-            printf("There is no mode");
+            cout << "Tidak ada modus";
         else
         {
             printf("Mode : ");
             for (i = 0; i < k; i++)
-                printf("%d ",b[i]);
+                if(i == k - 1){
+                    cout << b[i];
+                }else{
+                    cout << " " << b[i] << ",";
+                }
         }
         printf("\n");
 }
