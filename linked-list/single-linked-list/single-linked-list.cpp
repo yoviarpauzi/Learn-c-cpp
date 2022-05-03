@@ -62,7 +62,7 @@ void delMiddle(){
     }else{
         b = (b / 2) + 1;
     }
-    while(posisi < b){
+    while(posisi < b - 1){
         cur = cur->next;
         posisi++;
     }
@@ -103,9 +103,10 @@ void printLinkedList(){
 int main(){
     newNode("Yoviar pauzi", 19);
     addLast("Misbahul Anam", 21);
-    addFirst("Maulidani Rianturi", 18);
+    addLast("Maulidani Rianturi", 18);
     addLast("Satria", 23);
     addMiddle("Dihak", 21);
+    delMiddle();
     delMiddle();
     printLinkedList();
     return 0;
