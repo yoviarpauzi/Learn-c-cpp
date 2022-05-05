@@ -74,20 +74,18 @@ void changeMiddle(string nama, int umur){
     newnode->umur = umur;
     cur = head;
     int posisi = 1;
-    int b = a;
+    int b = a / 2;
     if(b % 2 == 0){
-        b = b / 2;
-    }else{
-        b = b / 2 + 1;
+        b--;
     }
     while(posisi < b){
         cur = cur->next;
         posisi++;
     }
     del = cur->next->next;
-    newnode->next = cur->next;
+    cur->next = newnode;
     newnode->prev = cur;
-    del->prev = newnode;
+    newnode->next = del;
 }
 // Ganti node akhir
 void changeLast(string nama, int umur){
@@ -125,6 +123,7 @@ void delMiddle(){
     cur->next = newnode;
     newnode->prev = cur;
     delete del;
+    a--;
 }
 // Hapus node akhir
 void delLast(){
@@ -187,11 +186,12 @@ void printLast(){
 }
 int main(){
     addLast("Yoviar Pauzi", 19);
-    addLast("Misbahul Anam", 20);
-    addMiddle("Rizki dinihari", 22);
-    addMiddle("Afrizal", 19);
-    changeMiddle("Kabul Laksana", 23);
-    changeLast("Maulidani Rianturi", 18);
-    printLast();
+    addLast("Maulidani Rianturi", 21);
+    addMiddle("Kabul Laksana", 21);
+    changeMiddle("Deni", 21);
+    addMiddle("Afrizal", 29);
+    changeMiddle("Rizki Dinihari", 21);
+    delMiddle();
+    printFirst();
     return 0;
 }
