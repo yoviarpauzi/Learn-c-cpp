@@ -6,6 +6,7 @@ struct Data{
     int umur;
     Data *next, *prev;
 }*head, *tail, *newnode, *cur, *del;
+// Menambahkan node di depan
 void addFirst(string nama, int umur){
     newnode = new Data();
     newnode->nama = nama;
@@ -20,6 +21,7 @@ void addFirst(string nama, int umur){
         head = newnode;
     }
 }
+// Menambahkan node di tengah
 void addMiddle(string nama, int umur){
     newnode = new Data();
     newnode->nama = nama;
@@ -43,6 +45,7 @@ void addMiddle(string nama, int umur){
     del->prev = newnode;
     a++;
 }
+// Menambahkan node di akhir
 void addLast(string nama, int umur){
     newnode = new Data();
     newnode->nama = nama;
@@ -58,6 +61,7 @@ void addLast(string nama, int umur){
     }
     a++;
 }
+// Sorting berdasarkan umur
 void Sorted(){
     cur = head;
     Data *index;
@@ -90,6 +94,7 @@ void Sorted(){
         cur = cur->next;
     }
 }
+// Menampilkan node dari depan
 void printFirst(){
     cur = head;
     while(cur != NULL){
@@ -98,6 +103,7 @@ void printFirst(){
         cur = cur->next;
     }
 }
+// Menampilkan node dari akhir
 void printLast(){
     cur = tail;
     while(cur != NULL){
