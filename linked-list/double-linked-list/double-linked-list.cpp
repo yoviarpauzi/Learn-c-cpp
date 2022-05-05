@@ -20,6 +20,7 @@ void addFirst(string nama, int umur){
         head->prev = newnode;
         head = newnode;
     }
+    a++;
 }
 // Menambahkan node di tengah
 void addMiddle(string nama, int umur){
@@ -28,12 +29,7 @@ void addMiddle(string nama, int umur){
     newnode->umur = umur;
     cur = head;
     int posisi = 1;
-    int b = 0;
-    if(a % 2 == 0){
-        b = a / 2;
-    }else{
-        b = a/ 2 + 1;
-    }
+    int b = a / 2;
     while(posisi < b){
         cur = cur->next;
         posisi++;
@@ -58,8 +54,85 @@ void addLast(string nama, int umur){
         newnode->prev = tail;
         tail->next = newnode;
         tail = newnode;
+        tail->next = NULL;
     }
     a++;
+}
+// Ganti node awal
+void changeFirst(string nama, int umur){
+    newnode = new Data();
+    newnode->nama = nama;
+    newnode->umur = umur;
+    cur = head->next;
+    head = newnode;
+    head->next = cur;
+}
+// Ganti node tengah
+void changeMiddle(string nama, int umur){
+    newnode = new Data();
+    newnode->nama = nama;
+    newnode->umur = umur;
+    cur = head;
+    int posisi = 1;
+    int b = a;
+    if(b % 2 == 0){
+        b = b / 2;
+    }else{
+        b = b / 2 + 1;
+    }
+    while(posisi < b){
+        cur = cur->next;
+        posisi++;
+    }
+    del = cur->next->next;
+    newnode->next = cur->next;
+    newnode->prev = cur;
+    del->prev = newnode;
+}
+// Ganti node akhir
+void changeLast(string nama, int umur){
+    newnode = new Data();
+    newnode->nama = nama;
+    newnode->umur = umur;
+    del = tail->prev;
+    newnode->prev = del;
+    tail = newnode;
+}
+// Hapus node awal
+void delFirst(){
+    del = head;
+    head = head->next;
+    head->prev = NULL;
+    delete del;
+    a--;
+}
+// Hapus node tengah
+void delMiddle(){
+    cur = head;
+    int posisi = 1;
+    int b = a;
+    if (b % 2 == 0){
+        b = b / 2 - 1;
+    }else{
+        b = b / 2;
+    }
+    while(posisi < b){
+        cur = cur->next;
+        posisi++;
+    }
+    del = cur->next;
+    newnode = cur->next->next;
+    cur->next = newnode;
+    newnode->prev = cur;
+    delete del;
+}
+// Hapus node akhir
+void delLast(){
+    del = tail;
+    tail = tail->prev;
+    tail->next = NULL;
+    delete del;
+    a--;
 }
 // Sorting berdasarkan umur
 void Sorted(){
@@ -115,10 +188,10 @@ void printLast(){
 int main(){
     addLast("Yoviar Pauzi", 19);
     addLast("Misbahul Anam", 20);
-    addMiddle("Saeful Anwar", 20);
-    addLast("Seldi alansyah", 21);
-    addFirst("Ahmad jakarya", 21);
-    Sorted();
-    printFirst();
+    addMiddle("Rizki dinihari", 22);
+    addMiddle("Afrizal", 19);
+    changeMiddle("Kabul Laksana", 23);
+    changeLast("Maulidani Rianturi", 18);
+    printLast();
     return 0;
 }
