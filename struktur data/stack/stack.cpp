@@ -4,7 +4,7 @@ using namespace std;
 int posisi = 0;
 int a[5];
 void push(int b){
-    if(posisi == N){
+    if(posisi == N - 1){
         cout << "Stack penuh, tidak bisa tambah data!!" << endl;
     }else{
          a[posisi] = b;
@@ -14,6 +14,8 @@ void push(int b){
 void change(int b){
     if(a[b] == 0){
         cout << "Antrian ke-" << b << " Kosong" << endl;
+    }else if(posisi == 0){
+        cout << "Stack kosong!!" << endl;
     }else{
         cout << "Inputkan nilai : ";
         cin >> a[b];
@@ -31,12 +33,16 @@ void delFirst(){
 }
 void Sorted(){
     int temp;
+    if(posisi == 0){
+        cout << "Stack kosong!!" << endl;
+    }else{
     for(int i = 0; i < N; i++){
         for(int j = 0; j < N - i - 1; j++){
             if(a[j] < a[j+1]){
                 temp = a[j];
                 a[j] = a[j+1];
                 a[j+1] = temp;
+                }
             }
         }
     }
