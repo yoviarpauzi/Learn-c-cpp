@@ -19,34 +19,44 @@ void newNode(string nama, int umur){
 }
 void searchNama(string nama){
     cur = head;
-    int a = 0;
+    int a = 0, b = 0;
     while(cur != NULL){
         if(cur->nama == nama){
             ++a;
-            cout << "Nama " << nama << " ada pada node ke-" << a << endl;
-            cout << "Dengan data : " << endl;
-            cout << "Nama : " << cur->nama << endl;
-            cout << "Umur : " << cur->umur << endl;
-        }else{
-          ++a;  
         }
         cur = cur->next;
+    }
+    if (a > 0){
+        while(cur != NULL){
+            if(cur->nama == nama){
+                ++b;
+                cout << "Node dengan nama : " << nama << " ada pada node ke-" << b << endl;
+            }
+            cur = cur->next;
+        }
+    }else{
+        cout << "Node dengan nama : " << nama << " tidak ada" << endl;
     }
 }
 void searchUmur(int umur){
     cur = head;
-    int a = 0;
+    int a = 0, b = 0;
     while(cur != NULL){
         if(cur->umur == umur){
             ++a;
-            cout << "Umur " << umur << " ada pada node ke-" << a << endl;
-            cout << "Dengan data : " << endl;
-            cout << "Nama : " << cur->nama << endl;
-            cout << "Umur : " << cur->umur << endl;
-        }else{
-          ++a;  
         }
         cur = cur->next;
+    }
+    if (a > 0){
+        while(cur != NULL){
+            if(cur->umur == umur){
+                ++b;
+                cout << "Node dengan umur : " << umur << " ada pada node ke-" << b << endl;
+            }
+            cur = cur->next;
+        }
+    }else{
+        cout << "Node dengan umur : " << umur << " tidak ada" << endl;
     }
 }
 void displayLinkedList(){
@@ -60,6 +70,6 @@ int main(){
     newNode("Yoviar Pauzi", 19);
     newNode("Ahmad Jakarya", 21);
     newNode("Reza Arap", 19);
-    searchUmur(19);
+    searchNama("Ahmad");
     return 0;
 }
