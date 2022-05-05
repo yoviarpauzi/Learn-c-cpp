@@ -6,21 +6,6 @@ struct Data{
     int umur;
     Data *next, *prev;
 }*head, *tail, *newnode, *cur, *del;
-void addLast(string nama, int umur){
-    newnode = new Data();
-    newnode->nama = nama;
-    newnode->umur = umur;
-    newnode->next = NULL;
-    if(head == NULL){
-        head = tail = newnode;
-        newnode->prev = NULL;
-    }else{
-        newnode->prev = tail;
-        tail->next = newnode;
-        tail = newnode;
-    }
-    a++;
-}
 void addFirst(string nama, int umur){
     newnode = new Data();
     newnode->nama = nama;
@@ -58,6 +43,21 @@ void addMiddle(string nama, int umur){
     del->prev = newnode;
     a++;
 }
+void addLast(string nama, int umur){
+    newnode = new Data();
+    newnode->nama = nama;
+    newnode->umur = umur;
+    newnode->next = NULL;
+    if(head == NULL){
+        head = tail = newnode;
+        newnode->prev = NULL;
+    }else{
+        newnode->prev = tail;
+        tail->next = newnode;
+        tail = newnode;
+    }
+    a++;
+}
 void Sorted(){
     cur = head;
     Data *index;
@@ -90,20 +90,20 @@ void Sorted(){
         cur = cur->next;
     }
 }
-void printLast(){
-    cur = tail;
-    while(cur != NULL){
-        cout << "Nama : " << cur->nama << endl;
-        cout << "Umur : " << cur->umur << endl;
-        cur = cur->prev;
-    }
-}
 void printFirst(){
     cur = head;
     while(cur != NULL){
         cout << "Nama : " << cur->nama << endl;
         cout << "Umur : " << cur->umur << endl;
         cur = cur->next;
+    }
+}
+void printLast(){
+    cur = tail;
+    while(cur != NULL){
+        cout << "Nama : " << cur->nama << endl;
+        cout << "Umur : " << cur->umur << endl;
+        cur = cur->prev;
     }
 }
 int main(){
