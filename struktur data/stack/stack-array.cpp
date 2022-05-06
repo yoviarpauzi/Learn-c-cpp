@@ -20,6 +20,18 @@ void delStack(){
         posisi--;
     }
 }
+void sorted(){
+    int temp = 0;
+    for(int i = 0; i < posisi; i++){
+        for(int j = 0; j < posisi - i - 1; j++){
+            if(data[j] < data[j+1]){
+                temp = data[j];
+                data[j] = data[j+1];
+                data[j+1] = temp;
+            }
+        }
+    }
+}
 void display(){
     if(posisi == 0){
         cout << "Stack kosong!!" << endl;
@@ -38,6 +50,7 @@ int main(){
     delStack();
     push(10);
     push(4);
+    sorted();
     display();
     return 0;
 }
