@@ -47,6 +47,7 @@ void display(){
 int main(){
     addLast("Misbahul Anam", 21);
     addFirst("Kabul Laksana", 22);
+    addLast("Maulidani Rianturi", 23);
     display();
     return 0;
 }
