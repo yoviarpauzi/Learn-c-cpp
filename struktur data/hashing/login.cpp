@@ -57,8 +57,7 @@ void menu(){
         cout << "3. Cek Database" << endl; 
         cout << "4. Keluar" << endl;
         cout << "Pilih : ";
-        cin >> pilihan;
-        cin.ignore(1,'\n');
+        getline(cin, pilihan);
         if(pilihan == "1"){
             Daftar();
         }else if(pilihan == "2"){
