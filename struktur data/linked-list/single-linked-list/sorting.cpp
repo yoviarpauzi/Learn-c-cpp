@@ -7,6 +7,7 @@ struct Teman{
     int tanggal, bulan, tahun;
     Teman *next;
 }*head, *tail, *cur, *temp, *index, *newnode;
+// Sorting
 void sorted(struct Teman *a, struct Teman *b){
     char nama[30];
     int tanggal, bulan, tahun;
@@ -27,6 +28,7 @@ void sorted(struct Teman *a, struct Teman *b){
     a->tahun = b->tahun;
     b->tahun = tahun;
 }
+// Menambahkan node baru
 void newNode(char *nama, int tanggal, int bulan, int tahun){
     newnode = new Teman();
     strcpy(newnode->nama, nama);
@@ -42,6 +44,7 @@ void newNode(char *nama, int tanggal, int bulan, int tahun){
         tail = newnode;
     }
 }
+// Mencari node yang akan di sorting
 void sortLinkedList(){
     cur = head;
     index = NULL;
@@ -66,11 +69,11 @@ void sortLinkedList(){
         cur = cur->next;
     }
 }
+// Menampilkan linkedlist
 void printLinkedList(){
     cur = head;
     while(cur != NULL){
-        cout << cur->nama << " ";
-        cout <<  cur->tanggal << "-";
+        cout << cur->nama << " " << cur->tanggal << "-";
         cout << cur->bulan << "-";
         cout << cur->tahun << endl;
         cur = cur->next;
