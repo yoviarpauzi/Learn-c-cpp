@@ -27,7 +27,7 @@ void sorted(struct Teman *a, struct Teman *b){
     a->tahun = b->tahun;
     b->tahun = tahun;
 }
-int newNode(char *nama, int tanggal, int bulan, int tahun){
+void newNode(char *nama, int tanggal, int bulan, int tahun){
     newnode = new Teman();
     strcpy(newnode->nama, nama);
     newnode->tanggal = tanggal;
