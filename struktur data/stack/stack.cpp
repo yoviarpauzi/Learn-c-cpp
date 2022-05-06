@@ -1,67 +1,43 @@
 #include <iostream>
+#include <string.h>
 using namespace std;
 #define N 5
+int data[N];
 int posisi = 0;
-int a[5];
-void push(int b){
-    if(posisi == N - 1){
-        cout << "Stack penuh, tidak bisa tambah data!!" << endl;
+void push(int a){
+    if(posisi > N - 1){
+        cout << "Stack penuh!!" << endl;
     }else{
-         a[posisi] = b;
-    }
-    posisi++;
-}
-void change(int b){
-    if(a[b] == 0){
-        cout << "Antrian ke-" << b << " Kosong" << endl;
-    }else if(posisi == 0){
-        cout << "Stack kosong!!" << endl;
-    }else{
-        cout << "Inputkan nilai : ";
-        cin >> a[b];
+        data[posisi] = a;
+        posisi++;
     }
 }
-void delFirst(){
+void delStack(){
     if(posisi == 0){
-        printf("Stack Kosong");
+        cout << "Stack Kosong!!" << endl;
     }else{
-        for(int i = 0; i < posisi; i++){
-            a[i] = a[i+1];
-        }
-    }
-    posisi--;
-}
-void Sorted(){
-    int temp;
-    if(posisi == 0){
-        cout << "Stack kosong!!" << endl;
-    }else{
-    for(int i = 0; i < N; i++){
-        for(int j = 0; j < N - i - 1; j++){
-            if(a[j] < a[j+1]){
-                temp = a[j];
-                a[j] = a[j+1];
-                a[j+1] = temp;
-                }
-            }
-        }
+        data[posisi - 1] = 0;
+        posisi--;
     }
 }
 void display(){
     if(posisi == 0){
-        cout << "Stack kosong" << endl;
+        cout << "Stack kosong!!" << endl;
     }else{
         for(int i = posisi - 1; i >= 0; i--){
-            cout << a[i] << endl;
+            cout << "|" << i << "|  " <<  data[i] << "  |" << i << "|" << endl;
         }
     }
 }
 int main(){
-    push(3);
     push(1);
-    push(2);
+    push(3);
     push(4);
-    delFirst();
+    push(2);
+    push(8);
+    delStack();
+    push(10);
+    push(4);
     display();
     return 0;
 }
