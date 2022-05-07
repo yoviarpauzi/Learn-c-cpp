@@ -44,7 +44,7 @@ void Database(){
         cout << "Database masih kosong!!" << endl;
     }else{
         for(int i = 0; i < 26; i++){
-            cout << i + 1 << ". " << user[i].nama << " " << user[i].password << endl;
+            cout << i << ". " << user[i].nama << " " << user[i].password << endl;
         }
     }
 }
