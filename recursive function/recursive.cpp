@@ -30,10 +30,20 @@ int jumDigit(int a){
         return 0;
     }
 }
+int faktorialRekursif(int a){
+    if(a == 1){
+        return a;
+    }else if(a == 0){
+        return a;
+    }else{
+        return a * faktorialRekursif(a - 1);
+    }
+}
 int main(){
     cout << pangkatRekursif(2, 3) << endl;
     cout << pangkatIterasi(2,4) << endl;
     cout << kaliRekursif(2, 1) << endl;
     cout << jumDigit(234) << endl;
+    cout << faktorialRekursif(5) << endl;
     return 0;
 }
