@@ -82,7 +82,7 @@ void menu(){
             cout << "Program berhenti" << endl;
             break;
         }else{
-            cout << "Pilihan tidak ada : ";
+            cout << "Pilihan tidak ada : " << endl;
         }
     }
 }
