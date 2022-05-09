@@ -6,6 +6,7 @@ struct User{
     string nama, password;
 }user[26];
 void cekUser(string nama, string password){
+    string pilih;
     int index = tolower(password[0]) - 97;
     if(user[index].nama == "" && user[index].password == ""){
         user[index].nama = nama;
@@ -14,6 +15,15 @@ void cekUser(string nama, string password){
         a++;
     }else{
         cout << "Usernama atau password telah ada!!" << endl;
+        cout << "Apakah anda ingin menggantinya(y/n)?" << endl;
+        getline(cin, pilih);
+        if(pilih == "y"){
+            user[index].nama = nama;
+            user[index].password = password;
+            cout << "Data berhasil dirubah!!" << endl;
+        }else{
+            cout << "Kembali ke menu!!" << endl;
+        }
     }
 }
 void Daftar(){
@@ -27,16 +37,20 @@ void Daftar(){
 }
 void Login(){
     string nama, password;
+    int c = 0;
     cout << "Inputkan username : ";
     getline(cin, nama);
     cout << "Inputkan password : ";
     getline(cin, password);
     for(int i = 0; i < 26; i++){
         if(user[i].nama == nama && user[i].password == password){
-            cout << "Anda berhasil login!!" << endl;
-        }else{
-            cout << "Username atau password salah!!" << endl;
+            c = 1;
         }
+    }
+    if (c > 0){
+        cout << "Anda berhasil login!!" << endl;
+    }else{
+        cout << "Username atau password salah!!" << endl;
     }
 }
 void Database(){
