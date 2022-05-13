@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#define N 100
+#define N 1
 int a, b, c, d, pilih;
 int m1[N][N], m2[N][N], m3[N][N];
 void inisialisasi(){
