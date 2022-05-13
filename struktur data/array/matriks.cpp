@@ -22,7 +22,7 @@ void inisialisasi(){
             cout << "Ordo tidak sama!!" << endl;
             goto input;
         }
-    }else if(pilih == 3 || pilih == 4){
+    }else if(pilih == 3){
         if(b != c){
             cout << "Kolom Matriks 1 harus sama dengan baris Matriks 2" << endl;
             goto input;
