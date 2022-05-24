@@ -1,11 +1,10 @@
 #include <iostream>
 #include <ctype.h>
-#include <string.h>
 using namespace std;
-char stack[30];
-int top = -1, back = 0;
-void push(char b){
-    stack[++top] = b;
+char stack[100];
+int top = -1;
+void push(char x){
+    stack[++top] = x;
 }
 char pop(){
     if(top == -1){
@@ -14,59 +13,42 @@ char pop(){
         return stack[top--];
     }
 }
-int derajat(char b){
-    if(b == '(')
+int derajat(char x){
+    if(x == '(')
         return 0;
-    if(b == '+' || b == '-')
+    if(x == '+' || x == '-')
         return 1;
-    if(b == '*' || b == '/')
+    if(x == '*' || x == '/')
         return 2;
-    if(b == '^')
+    if(x == '^')
         return 3;
     return 0;
 }
-void view(char a[]){
-    for(int i = 0; i < 4; i++){
-        cout << a[i];
-    }
-    cout << a[back - 1];
-}
-void validasi(char a[]){
-    char b, *c;
-    int d = strlen(a);
-    char e[d];
-    c = a;
-    while(*c != '\0')
-    {
-        if(isalnum(*c)){
-            e[back] = *c;
-            back++;
-        }else if(*c == '('){
-            push(*c);
-        }else if(*c == ')'){
+void validasi(char x[]){
+    char *a, b;
+    a = x;
+    while(*a != '\0'){
+        if(isalnum(*a)){
+            cout << *a << " ";
+        }else if(*a == '('){
+            push(*a);
+        }else if(*a == ')'){
             while((b = pop()) != '(')
-                e[back] = b;
-                back++;
+                cout << b << " ";
         }else{
-            while(derajat(stack[top]) >= derajat(*c))
-                e[back] = pop();
-                back++;
-            push(*c);
+            while(derajat(stack[top]) >= derajat(*a))
+                cout << pop() << " ";
+            push(*a);
         }
-        c++;
+        a++;
     }
-    
-    while(top != -1)
-    {
-        e[back] = pop();
-        back++;
+    while(top != -1){
+        cout << pop() << " ";
     }
-    view(e);
 }
 int main(){
-    char a[30];
-    cout << "Inputkan infix : ";
-    cin.getline(a, 30);
+    char a[100];
+    cout << "Inputkan karakter : ";
+    cin >> a;
     validasi(a);
-    return 0;
 }
