@@ -24,7 +24,7 @@ int derajat(char x){
         return 3;
     return 0;
 }
-void validasi(char x[]){
+void postfix(char x[]){
     char *a, b;
     a = x;
     while(*a != '\0'){
@@ -50,5 +50,5 @@ int main(){
     char a[100];
     cout << "Inputkan karakter : ";
     cin >> a;
-    validasi(a);
+    postfix(a);
 }
