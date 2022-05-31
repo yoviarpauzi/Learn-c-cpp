@@ -18,7 +18,7 @@ string ConvertStringToInt(int a){
     return hasil;
 }
 int main(){
-    int diamond, harga = 160;
+    int diamond, harga = 200;
     cout << "Inputkan banyak diamond : ";
     cin >> diamond;
     harga *= diamond;
