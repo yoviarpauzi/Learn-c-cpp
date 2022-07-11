@@ -40,6 +40,52 @@ void find(Tree *root, int x){
         }
     }
 }
+Tree *minValue(Tree *root){
+    Tree *cur = root;
+    while(!cur && cur->left != NULL){
+        cur = cur->left;
+    }
+    return cur;
+}
+Tree *deleteNode(Tree *root, int x){
+    if(root == NULL){
+        return NULL;
+    }else if(x > root->data){
+        root->right = deleteNode(root->right, x);
+    }else if(x < root->data){
+        root->left = deleteNode(root->left, x);
+    }else{
+        if(root->left == NULL && root->right == NULL){
+            return NULL;
+        }else if(root->left == NULL){
+            Tree *temp = root->right;
+            free(root);
+            return temp;
+        }else if(root->right == NULL){
+            Tree *temp = root->left;
+            free(root);
+            return temp;
+        }else{
+            Tree *temp = minValue(root->right);
+            root->data = temp->data;
+            root->right = deleteNode(root->right, temp->data);
+        }
+        return root;
+    }
+}
+int height(Tree *root){
+    if(root == NULL){
+        return 0;
+    }else{
+        int u = height(root->left);
+        int v = height(root->right);
+        if(u > v){
+            return u + 1;
+        }else{
+            return v + 1;
+        }
+    }
+}
 void preorder(Tree *root){
    if(root == NULL){
         return;
@@ -72,11 +118,8 @@ int main(){
     root = insertTree(root, 16);
     insertTree(root, 20);
     insertTree(root, 15);
-    if(a > 0){
-        preorder(root);
-    }else{
-        cout << "Data pada Tree kosong" << endl;
-    }
-    find(root, 17);
+    preorder(root);
+    cout << endl;
+    cout << height(root);
     return 0;
 }
